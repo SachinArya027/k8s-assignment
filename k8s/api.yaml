@@ -9,14 +9,6 @@ data:
   DATABASE_NAME: mydatabase
   DATABASE_USER: myuser
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: api-secret
-type: Opaque
-data:
-  DATABASE_PASSWORD: cGFzc3dvcmQ=
----
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -33,12 +25,12 @@ spec:
     spec:
       containers:
       - name: api
-        image: api:latest
+        image: sachinarya/k8s-api:latest
         envFrom:
         - configMapRef:
             name: api-config
         - secretRef:
-            name: api-secret
+            name: postgres-secret
         ports:
         - containerPort: 8080
 ---
