@@ -5,7 +5,7 @@ kind: ReplicaSet
 metadata:
   name: api
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: api
@@ -17,6 +17,9 @@ spec:
       containers:
       - name: api
         image: sachinarya/k8s-api:latest
+        resources:
+          requests:
+            cpu: "100m"
         envFrom:
         - configMapRef:
             name: db-config
@@ -28,6 +31,19 @@ spec:
                 key: POSTGRES_PASSWORD
         ports:
         - containerPort: 8080
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: api
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    name: api
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
 ---
 apiVersion: v1
 kind: Service
