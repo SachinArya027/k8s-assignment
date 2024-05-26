@@ -18,22 +18,4 @@ const Todo = db.define('Todo', {
   }
 });
 
-const createTodos = async () => {
-  try {
-    await Todo.sync();
-
-    const mockData = [
-      { title: 'Buy groceries', status: 'Incomplete' },
-      { title: 'Do laundry', status: 'Incomplete' },
-      { title: 'Finish project', status: 'Incomplete' }
-    ];
-
-    await Todo.bulkCreate(mockData);
-  } catch (err) {
-    console.log('Error creating table or adding data', err);
-  }
-};
-
-createTodos();
-
 export default Todo;

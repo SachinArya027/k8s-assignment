@@ -8,7 +8,7 @@ Before deploying the application, make sure you have created a kubernetes secret
 
 ## Project Structure
 
-\\\`
+```
 .gitignore
 api/
     .dockerignore
@@ -22,22 +22,22 @@ k8s/
     api.yaml
     config.yaml
     db.yaml
-\\\`
+```
 
 ## Getting Started
 
 1. Build the Docker image:
 
-\\\`sh
+```sh
 cd api
 docker build -t my-app:1.0 .
-\\\`
+```
 
 2. Deploy the application on Kubernetes:
 
-\\\`sh
+```sh
 kubectl apply -f k8s/
-\\\`
+```
 
 ## Docker
 
