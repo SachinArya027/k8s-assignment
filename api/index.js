@@ -11,7 +11,6 @@ app.get('/heartbeat', (req, res) => {
   res.send('❤️❤️❤️');
 });
 
-
 app.post('/todo', async (req, res) => {
   try {
     const todo = await Todo.create(req.body);
@@ -31,7 +30,7 @@ app.delete('/todo/:id', async (req, res) => {
     if (todo) {
       res.status(204).send();
     } else {
-      res.status(404).send({message: 'Todo not found'});
+      res.status(404).send({ message: 'Todo not found' });
     }
   } catch (err) {
     res.status(500).send(err);
@@ -57,7 +56,7 @@ app.get('/todo/:id', async (req, res) => {
     if (todo) {
       res.send();
     } else {
-      res.status(404).send({message: 'Todo not found'});
+      res.status(404).send({ message: 'Todo not found' });
     }
   } catch (err) {
     res.status(500).send(err);
@@ -66,7 +65,7 @@ app.get('/todo/:id', async (req, res) => {
 
 app.get('/extraload', (req, res) => {
   let result = 0;
-  for (let i = 0; i < 1e9; i++) {
+  for (let i = 0; i < 1e5; i++) {
     result++;
   }
   res.send(`Extra Load result ${result}`);

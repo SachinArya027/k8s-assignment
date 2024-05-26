@@ -1,4 +1,2 @@
-for i in {1..10000}
-do
-  curl "http://localhost:8080/extraload"
-done
+# to run this script you should have ab (apache benchmark) installed on the system
+ab -n 200 -c 100 http://localhost:8080/extraload
