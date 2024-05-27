@@ -2,4 +2,4 @@
 # make sure you have installed apache2-utils
 # this will overload the server with multiple concurrent requests
 # and will result in increasing the cpu usage
-ab -n 200 -c 100 http://localhost:8080/extraload
+ab -n 10000 -c 100 http://localhost:8080/extraload

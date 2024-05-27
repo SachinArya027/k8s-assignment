@@ -13,6 +13,10 @@ spec:
       labels:
         app: api
     spec:
+      initContainers:
+      - name: check-db-ready
+        image: busybox:1.28
+        command: ['sh', '-c', 'until nslookup postgres.default.svc.cluster.local; do echo waiting for postgres; sleep 5; done']
       containers:
       - name: api
         image: sachinarya/k8s-api:latest
