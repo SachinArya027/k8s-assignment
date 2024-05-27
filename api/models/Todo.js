@@ -18,4 +18,6 @@ const Todo = db.define('Todo', {
   }
 });
 
+Todo.sync();  
+
 export default Todo;

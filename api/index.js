@@ -11,6 +11,28 @@ app.get('/heartbeat', (req, res) => {
   res.send('❤️❤️❤️');
 });
 
+app.get('/todo', async (req, res) => {
+  try {
+    const todos = await Todo.findAll();
+    res.send(todos);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.get('/todo/:id', async (req, res) => {
+  try {
+    const todo = await Todo.findByPk(req.params.id);
+    if (todo) {
+      res.send(todo);
+    } else {
+      res.status(404).send({ message: 'Todo not found' });
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 app.post('/todo', async (req, res) => {
   try {
     const todo = await Todo.create(req.body);
@@ -28,33 +50,7 @@ app.delete('/todo/:id', async (req, res) => {
       }
     });
     if (todo) {
-      res.status(204).send();
-    } else {
-      res.status(404).send({ message: 'Todo not found' });
-    }
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
-
-app.get('/todo', async (req, res) => {
-  try {
-    const todos = await Todo.findAll();
-    res.send(todos);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
-
-app.get('/todo/:id', async (req, res) => {
-  try {
-    const todo = await Todo.destroy({
-      where: {
-        id: req.params.id
-      }
-    });
-    if (todo) {
-      res.send();
+      res.send('Deleted');
     } else {
       res.status(404).send({ message: 'Todo not found' });
     }
