@@ -1,4 +1,3 @@
-# Kubernetes YAML
 ---
 apiVersion: apps/v1
 kind: ReplicaSet
@@ -29,6 +28,8 @@ spec:
               secretKeyRef:
                 name: postgres-secret
                 key: POSTGRES_PASSWORD
+          - name: DATABASE_HOST
+            value: postgres.default.svc.cluster.local
         ports:
         - containerPort: 8080
 ---
