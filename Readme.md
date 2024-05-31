@@ -8,7 +8,8 @@ Repository Link: [SachinArya027/k8s-assignment](https://github.com/SachinArya027
 
 Docker Image for api: [sachinarya/k8s-api](https://hub.docker.com/repository/docker/sachinarya/k8s-api/general)
 
-Screen Recording: #todo
+Screen Recording: [Video Recording](https://1drv.ms/v/s!Aqxg7UiBZKAMlgjLJKsTiXSEw280?e=RXCLSP)
+(Last 4 mins of the recording are just to show HPA to scale down the number of api pods and can be ignored if scaling up of pods which is already demo-ed is enough.)
 
 For database Postgres standard image is used
 
@@ -69,4 +70,4 @@ The k8s directory contains Kubernetes configuration files for deploying the appl
 
 ## Database
 
-The database is managed by Sequelize. The Todo model is defined in [api/db/Todo.js](api/db/Todo.js).
+The database is managed by Sequelize. The Todo model is defined in [api/models/Todo.js](api/models/Todo.js).
