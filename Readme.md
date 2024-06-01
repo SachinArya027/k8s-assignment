@@ -6,10 +6,10 @@ This project is a Dockerized API application that is ready for deployment on a K
 
 Repository Link: [SachinArya027/k8s-assignment](https://github.com/SachinArya027/k8s-assignment)
 
-Docker Image for api: [sachinarya/k8s-api](https://hub.docker.com/repository/docker/sachinarya/k8s-api/general)
+Docker Image for api: [sachinarya/k8s-api](https://hub.docker.com/r/sachinarya/k8s-api)
 
 Screen Recording: [Video Recording](https://1drv.ms/v/s!Aqxg7UiBZKAMlgjLJKsTiXSEw280?e=RXCLSP)
-(Last 4 mins of the recording are just to show HPA to scale down the number of api pods and can be ignored if scaling up of pods which is already demo-ed is enough.)
+(Last 4 mins of the recording are just to show HPA to scale down the number of api pods and you can skip directly to the end to see that in action.)
 
 For database Postgres standard image is used
 
